@@ -10,22 +10,11 @@ source .env
  chmod +x /tmp/wp-cli.phar
  #Movemos wp-cli.phar a /usr/local/bin/wp
  mv /tmp/wp-cli.phar /usr/local/bin/wp
- #Eliminamos instalaciones previas
- rm -rf /var/www/html/*
  #Instalamos wp core
 wp core download \
   --locale=es_ES \
   --path=/var/www/html \
   --allow-root
-  #Creamos una base de datos de ejemplo
-mysql -u root -e "DROP DATABASE IF EXISTS $DB_NAME"
-mysql -u root -e "CREATE DATABASE $DB_NAME";
-
-#Creamos un usuario y contraseña para la base de datos
-mysql -u root -e "DROP USER IF EXISTS '$DB_USER'@'$IP_CLIENTE_MYSQL';";
-mysql -u root -e "CREATE USER $DB_USER@'$IP_CLIENTE_MYSQL' IDENTIFIED BY '$DB_PASSWORD'";
-#Le asignamos privilegios de nuestra base de datos
-mysql -u root -e "GRANT ALL PRIVILEGES ON $DB_NAME.* TO $DB_USER@'$IP_CLIENTE_MYSQL'";
 #Creamos archivo wp_config
 wp config create \
   --dbname=$DB_NAME \
