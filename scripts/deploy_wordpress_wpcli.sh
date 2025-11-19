@@ -46,5 +46,8 @@ wp option update whl_page $URL_HIDE_LOGIN --path=/var/www/html --allow-root
 wp theme install mindscape --activate \
 --path=/var/www/html \
 --allow-root
+# Configuramos una url personalizada para la pagina de login
+wp option update whl_page $URL_HIDE_LOGIN --path=/var/www/html --allow-root
+cp ../htaccess/.htaccess /var/www/html
 #Modificamos el propietario y el grupo de /var/www/html a www-data
 chown -R www-data:www-data /var/www/html
