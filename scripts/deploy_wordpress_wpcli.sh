@@ -10,6 +10,8 @@ source .env
  chmod +x /tmp/wp-cli.phar
  #Movemos wp-cli.phar a /usr/local/bin/wp
  mv /tmp/wp-cli.phar /usr/local/bin/wp
+ #borramos instalaciones previas de wordpress
+ rm -rf /var/www/html/*
  #Instalamos wp core
 wp core download \
   --locale=es_ES \
@@ -20,7 +22,7 @@ wp config create \
   --dbname=$DB_NAME \
   --dbuser=$DB_USER \
   --dbpass=$DB_PASSWORD \
-  --dbhost=localhost \
+  --dbhost=$DB_HOST \
   --path=/var/www/html \
   --allow-root
   #Instalamos wordpress
