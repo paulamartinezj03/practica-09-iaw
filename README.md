@@ -101,6 +101,6 @@ wp option update whl_page $URL_HIDE_LOGIN --path=/var/www/html --allow-root
 cp ../htaccess/.htaccess /var/www/html
 ## Modificamos el propietario y el grupo de /var/www/html a www-data
 chown -R www-data:www-data /var/www/html
-![](/practica-09-iaw/images/frontend.png)
-![](/practica-09-iaw/images/backend.png)
-![](/practica-09-iaw/images/wordpress%20frontend%20backend.png)
+![](images/frontend.png)
+![](images/backend.png)
+![](images/wordpress%20frontend%20backend.png)
